@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="225px" height="224px" viewBox="0 0 225 224" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Receive - Icon@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="2.83276945e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#53AA74" offset="0%"></stop>
+            <stop stop-color="#37686A" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="96.5" cy="96.5" r="73.4944669"></circle>
+        <filter x="-42.9%" y="-25.0%" width="178.6%" height="178.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="-2" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.683487457   0 0 0 0 0.303626459   0 0 0 0 0.158385489  0 0 0 0.386945199 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M23.7402,-2.84217094e-14 L23.7402,-2.84217094e-14 C36.8515504,-3.08302254e-14 47.4804,10.6288496 47.4804,23.7402 L47.4804,61.8552 L-4.26325641e-14,61.8552 L-4.26325641e-14,23.7402 C-4.42382415e-14,10.6288496 10.6288496,-2.60131934e-14 23.7402,-2.84217094e-14 Z" id="path-5"></path>
+        <path d="M5.03118,0.256878351 L63.00954,0.256878351 C65.6558676,0.256878351 67.80114,2.40215074 67.80114,5.04847835 L67.80114,38.3328 C67.80114,40.9791276 65.6558676,43.1244 63.00954,43.1244 L5.03118,43.1244 C2.38485239,43.1244 0.23958,40.9791276 0.23958,38.3328 L0.23958,5.04847835 C0.23958,2.40215074 2.38485239,0.256878351 5.03118,0.256878351 Z" id="path-7"></path>
+        <path d="M5.03118,0.256878351 L53.42634,0.256878351 L53.42634,43.1244 L5.03118,43.1244 C2.38485239,43.1244 0.23958,40.9791276 0.23958,38.3328 L0.23958,5.04847835 C0.23958,2.40215074 2.38485239,0.256878351 5.03118,0.256878351 Z" id="path-9"></path>
+        <filter x="-70.2%" y="-39.4%" width="240.4%" height="240.4%" filterUnits="objectBoundingBox" id="filter-11">
+            <feOffset dx="0" dy="16" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="9.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.783508716   0 0 0 0 0.312171028   0 0 0 0 0.106208341  0 0 0 0.334550498 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="123.256129%" y1="-24.3469304%" x2="28.6215874%" y2="128.052961%" id="linearGradient-12">
+            <stop stop-color="#FFD472" offset="0%"></stop>
+            <stop stop-color="#FF7D29" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Main-Page---Jan-19" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-818.000000, -1219.000000)">
+        <g id="Section-2" transform="translate(0.000000, 626.000000)">
+            <g id="Product-Icon" transform="translate(397.500000, 591.000000)">
+                <g id="Receive---Icon" transform="translate(420.000000, 1.197804)">
+                    <g transform="translate(0.000000, 0.616890)">
+                        <rect id="Rectangle-25" x="1.15270455" y="0.411983324" width="223.694591" height="223.694591"></rect>
+                        <g id="Group-29" transform="translate(15.887172, 14.759279)">
+                            <g id="Group-9-Copy-2" transform="translate(0.112828, 0.240721)">
+                                <g id="Group-7" transform="translate(0.147717, 0.658823)">
+                                    <g id="Group-2">
+                                        <circle id="Oval-11-Copy-6" fill="url(#linearGradient-1)" cx="96.5" cy="96.5" r="95.542807"></circle>
+                                        <mask id="mask-3" fill="white">
+                                            <use xlink:href="#path-2"></use>
+                                        </mask>
+                                        <use id="Oval-11" fill="#FFFFFF" opacity="0.100000001" xlink:href="#path-2"></use>
+                                        <circle id="Oval-11-Copy-2" fill="#FFFFFF" opacity="0.100000001" mask="url(#mask-3)" cx="96.5" cy="96.5" r="58.5751805"></circle>
+                                        <circle id="Oval-11-Copy-3" fill="#FFFFFF" opacity="0.0435914855" mask="url(#mask-3)" cx="96.5" cy="96.5" r="33.1050151"></circle>
+                                        <path d="M46.9522827,58.7090895 L46.9522827,82.3882144 C46.9522827,87.9110619 51.4294352,92.3882144 56.9522827,92.3882144 L106.689383,92.3882144" id="Path-4-Copy" stroke="#FFFFFF" stroke-width="2" opacity="0.387228261" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3" mask="url(#mask-3)" transform="translate(76.820833, 75.548652) scale(-1, -1) translate(-76.820833, -75.548652) "></path>
+                                        <g id="Group-3" filter="url(#filter-4)" mask="url(#mask-3)">
+                                            <g transform="translate(21.000000, 46.000000)"></g>
+                                        </g>
+                                        <g id="Group-19" mask="url(#mask-3)">
+                                            <g transform="translate(111.998119, 106.112177)">
+                                                <polygon id="Rectangle-9" fill="#38A15D" points="-8.52651283e-14 0.276262343 22.32 0.276262343 22.32 69.5562623 -1.42108547e-13 69.5562623"></polygon>
+                                                <polygon id="Rectangle-9-Copy" fill="#6AC68A" points="-8.52651283e-14 0.276262343 7.92 0.276262343 7.92 69.5562623 -1.42108547e-13 69.5562623"></polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <g id="Group-20" transform="translate(43.832119, 49.550177)">
+                                        <g id="Group-17" transform="translate(17.295200, 0.000000)">
+                                            <path d="M24.5224,16.1172 L83.764,16.1172 C100.363691,16.1172 113.8204,29.5739086 113.8204,46.1736 L113.8204,73.6164 C113.8204,76.0221524 111.870152,77.9724 109.4644,77.9724 L1,77.9724 L1,39.6396 C1,26.6485372 11.5313372,16.1172 24.5224,16.1172 Z" id="Rectangle-Copy" fill="#6AC68A"></path>
+                                            <g id="Group-16" transform="translate(-0.000000, 17.117200)">
+                                                <mask id="mask-6" fill="white">
+                                                    <use xlink:href="#path-5"></use>
+                                                </mask>
+                                                <use id="Rectangle" fill="#2D824B" xlink:href="#path-5"></use>
+                                                <g id="Group-5" mask="url(#mask-6)">
+                                                    <g transform="translate(-11.462360, 16.538540)" id="Group-7">
+                                                        <g>
+                                                            <mask id="mask-8" fill="white">
+                                                                <use xlink:href="#path-7"></use>
+                                                            </mask>
+                                                            <use id="Rectangle-11" fill="#B6E0C4" xlink:href="#path-7"></use>
+                                                            <path d="M1.22448612,24.2148784 L66.8162339,24.2148784 C69.4625615,24.2148784 71.6078339,26.3601507 71.6078339,29.0064784 C71.6078339,30.5801061 70.8351684,32.0534277 69.540663,32.9481679 L38.6518895,54.2979652 C35.8646921,56.2244289 32.1760279,56.2244289 29.3888305,54.2979652 L-1.49994298,32.9481679 C-3.67687802,31.4435073 -4.22186409,28.4589843 -2.71720345,26.2820493 C-1.82246323,24.9875438 -0.349141642,24.2148784 1.22448612,24.2148784 Z" id="Rectangle-11-Copy-2" fill="#FFFFFF" opacity="0.605412138" mask="url(#mask-8)" transform="translate(34.020142, 39.978846) scale(1, -1) translate(-34.020142, -39.978846) "></path>
+                                                            <path d="M1.22448612,0.256878351 L66.8162339,0.256878351 C69.4625615,0.256878351 71.6078339,2.40215074 71.6078339,5.04847835 C71.6078339,6.62210611 70.8351684,8.09542769 69.540663,8.99016792 L38.6518895,30.3399652 C35.8646921,32.2664289 32.1760279,32.2664289 29.3888305,30.3399652 L-1.49994298,8.99016792 C-3.67687802,7.48550728 -4.22186409,4.50098429 -2.71720345,2.32404925 C-1.82246323,1.02954384 -0.349141642,0.256878351 1.22448612,0.256878351 Z" id="Rectangle-11-Copy" fill="#FFFFFF" mask="url(#mask-8)"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <circle id="Oval-5" fill="#FFFFFF" cx="75.7054" cy="47.2626" r="8.09205469"></circle>
+                                            <path d="M76.8278547,-2.84730381e-15 L82.0550547,-2.84730381e-15 C83.0173556,-3.02407562e-15 83.7974547,0.780099052 83.7974547,1.7424 L83.7974547,46.6092 C83.7974547,47.5715009 83.0173556,48.3516 82.0550547,48.3516 L76.8278547,48.3516 C75.8655537,48.3516 75.0854547,47.5715009 75.0854547,46.6092 L75.0854547,1.7424 C75.0854547,0.780099052 75.8655537,-2.67053199e-15 76.8278547,-2.84730381e-15 Z" id="Rectangle-12" fill="#FFFFFF"></path>
+                                            <path d="M84.1996,-4.7916 L84.6352,-4.7916 C85.5975009,-4.7916 86.3776,-4.01150095 86.3776,-3.0492 L86.3776,6.9696 C86.3776,7.93190095 85.5975009,8.712 84.6352,8.712 L84.1996,8.712 C83.2372991,8.712 82.4572,7.93190095 82.4572,6.9696 L82.4572,-3.0492 C82.4572,-4.01150095 83.2372991,-4.7916 84.1996,-4.7916 Z" id="Rectangle-12-Copy" fill="#FFFFFF" transform="translate(84.417400, 1.960200) rotate(-270.000000) translate(-84.417400, -1.960200) "></path>
+                                            <circle id="Oval-5-Copy" fill="#1D713A" cx="75.7054" cy="47.2626" r="2.44445911"></circle>
+                                        </g>
+                                        <g id="Group-18" transform="translate(-0.000000, 76.665600)">
+                                            <rect id="Rectangle-8-Copy" fill="#318C51" x="56.1924" y="0" width="81.8928" height="5.6628" rx="2.8314"></rect>
+                                            <rect id="Rectangle-8" fill="#5EC080" x="0" y="0" width="81.8928" height="5.6628" rx="2.8314"></rect>
+                                        </g>
+                                        <g id="Group-5" transform="translate(5.980583, 33.575367)">
+                                            <g id="Group-7">
+                                                <mask id="mask-10" fill="white">
+                                                    <use xlink:href="#path-9"></use>
+                                                </mask>
+                                                <use id="Rectangle-11" fill="#B6E0C4" xlink:href="#path-9"></use>
+                                                <path d="M1.22448612,24.2148784 L66.8162339,24.2148784 C69.4625615,24.2148784 71.6078339,26.3601507 71.6078339,29.0064784 C71.6078339,30.5801061 70.8351684,32.0534277 69.540663,32.9481679 L38.6518895,54.2979652 C35.8646921,56.2244289 32.1760279,56.2244289 29.3888305,54.2979652 L-1.49994298,32.9481679 C-3.67687802,31.4435073 -4.22186409,28.4589843 -2.71720345,26.2820493 C-1.82246323,24.9875438 -0.349141642,24.2148784 1.22448612,24.2148784 Z" id="Rectangle-11-Copy-2" fill="#FFFFFF" opacity="0.605412138" mask="url(#mask-10)" transform="translate(34.020142, 39.978846) scale(1, -1) translate(-34.020142, -39.978846) "></path>
+                                                <circle id="Oval-6" fill="#1D713A" mask="url(#mask-10)" cx="11.26026" cy="33.30162" r="4.55202"></circle>
+                                                <path d="M1.22448612,0.256878351 L66.8162339,0.256878351 C69.4625615,0.256878351 71.6078339,2.40215074 71.6078339,5.04847835 C71.6078339,6.62210611 70.8351684,8.09542769 69.540663,8.99016792 L38.6518895,30.3399652 C35.8646921,32.2664289 32.1760279,32.2664289 29.3888305,30.3399652 L-1.49994298,8.99016792 C-3.67687802,7.48550728 -4.22186409,4.50098429 -2.71720345,2.32404925 C-1.82246323,1.02954384 -0.349141642,0.256878351 1.22448612,0.256878351 Z" id="Rectangle-11-Copy" fill="#FFFFFF" mask="url(#mask-10)"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                    <g id="Group-6" filter="url(#filter-11)" transform="translate(14.314540, 32.400000)">
+                                        <circle id="Oval-2" fill="url(#linearGradient-12)" cx="25.8653721" cy="26.0243554" r="25.7399998"></circle>
+                                        <polyline id="Path-3-Copy" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(27.330577, 24.199773) rotate(-45.000000) translate(-27.330577, -24.199773) " points="19.3775787 20.6011194 19.3775787 27.4011194 35.2835751 27.7984276"></polyline>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
