@@ -33,8 +33,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn import cross_validation, metrics   #Additional scklearn functions
 from sklearn.grid_search import GridSearchCV
-from nltk import PorterStemmer
-
+import pickle
 
 # ## Vectorizer
 
