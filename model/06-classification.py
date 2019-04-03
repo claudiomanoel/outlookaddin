@@ -41,7 +41,7 @@ import pickle
 
 TOP_LEVEL_CATEGORY = "1"
 SECOND_LEVEL_CATEGORY = "1"
-FULL_LEVEL_CATEGORY = TOP_LEVEL_CATEGORY + "," + SECOND_LEVEL_CATEGORY
+FULL_LEVEL_CATEGORY = TOP_LEVEL_CATEGORY + "," + SECOND_LEVEL_CATEGORY + ","
 
 file = open("clean_data.txt", "r")
 clean_data = file.readlines()
@@ -55,7 +55,13 @@ def getData(clean_data, label_data):
     yes = []
     no = []
     for i in range(len(clean_data) - 1):
-        if FULL_LEVEL_CATEGORY not in label_data[i]:
+        label_line_data = label_data[i].split("\n")
+        find_key = False
+        for j in range(len(label_line_data)):
+            if label_line_data[j].startswith(FULL_LEVEL_CATEGORY):
+                find_key = True
+                break
+        if (find_key):
             yes.append(clean_data[i])
         else:
             no.append(clean_data[i])  
@@ -119,6 +125,9 @@ def SVM_CV(data, n_samples, folds, C_hyperparam):
     y = y_raw[:n_samples]
     fold_size = int(len(y)/folds)
     
+    best_result = -1
+    best_hyperparam = -1
+
     for c in C_hyperparam:
         print("{:<6}{:<6}{:<8}{:<6}".format('C', 'Fold', 'Error', 'Time'))
         kfold_scores = []
@@ -141,11 +150,17 @@ def SVM_CV(data, n_samples, folds, C_hyperparam):
 
         mean_score = round(np.mean(kfold_scores), 4)
         mean_error = round(1 - mean_score, 4)
+
+        if mean_error > best_result:
+               best_result =  mean_error
+               best_hyperparam = c
         print("Mean error: {}\nMean accuracy:    {}\n".format(mean_score, mean_error))
+    best_model = LinearSVC(C=best_hyperparam).fit(X_raw, y_raw)
+    return best_result, best_model
 
 
 data = scipy.io.loadmat('./email_data.mat')
-SVM_CV(data, n_samples=number_of_samples, folds=10, C_hyperparam=[.01, .1, 1, 10, 100])
+svm_best_result, svm_model = SVM_CV(data, n_samples=number_of_samples, folds=10, C_hyperparam=[.01, .1, 1, 10, 100])
 
 
 # In[ ]:
@@ -167,6 +182,9 @@ def randomforest_CV(data, n_samples, folds, C_hyperparam):
     y = y_raw[:n_samples]
     fold_size = int(len(y)/folds)
     
+    best_result = -1
+    best_hyperparam = -1
+
     for c in C_hyperparam:
         print ("{:<6}{:<6}{:<8}{:<6}".format('C', 'Fold', 'Error', 'Time'))
         kfold_scores = []
@@ -190,12 +208,16 @@ def randomforest_CV(data, n_samples, folds, C_hyperparam):
 
         mean_score = round(np.mean(kfold_scores), 4)
         mean_error = round(1 - mean_score, 4)
+        if mean_error > best_result:
+            best_result =  mean_error
+            best_hyperparam = c
         print("Mean error: {}\nMean accuracy:    {}\n".format(mean_score, mean_error))
+    best_model = RandomForestClassifier(n_estimators=best_hyperparam).fit(X_raw, y_raw)
+    return best_result, best_model
 
 
 data = scipy.io.loadmat('./email_data.mat')
-randomforest_CV(data, n_samples=number_of_samples, folds=5, C_hyperparam=[1, 10, 100])
-
+random_forest_best_result, random_forest_model = randomforest_CV(data, n_samples=number_of_samples, folds=5, C_hyperparam=[1, 10, 100])
 
 # In[3]:
 
@@ -216,6 +238,9 @@ def logistic_CV(data, n_samples, folds, C_hyperparam):
     y = y_raw[:n_samples]
     fold_size = int(len(y)/folds)
     
+    best_result = -1
+    best_hyperparam = -1
+
     for c in C_hyperparam:
         print("{:<6}{:<6}{:<8}{:<6}".format('C', 'Fold', 'Error', 'Time'))
         kfold_scores = []
@@ -239,8 +264,35 @@ def logistic_CV(data, n_samples, folds, C_hyperparam):
 
         mean_score = round(np.mean(kfold_scores), 4)
         mean_error = round(1 - mean_score, 4)
+        if mean_error > best_result:
+            best_result =  mean_error
+            best_hyperparam = c
         print("Mean error: {}\nMean accuracy:    {}\n".format(mean_score, mean_error))
+    best_model = LogisticRegression(C=best_hyperparam).fit(X_raw, y_raw)
+    return best_result, best_model
 
 
 data = scipy.io.loadmat('./email_data.mat')
-logistic_CV(data, n_samples=number_of_samples, folds=5, C_hyperparam=[0.001, 0.01, 0.1, 1, 10, 100])
+logistic_best_result, logistic_model = logistic_CV(data, n_samples=number_of_samples, folds=5, C_hyperparam=[0.001, 0.01, 0.1, 1, 10, 100])
+
+#Find best result
+best_results = []
+best_results.append(svm_best_result)
+best_results.append(random_forest_best_result)
+best_results.append(logistic_best_result)
+best_result = max(best_results)
+best_model = svm_model
+
+if (best_result == svm_best_result):
+    print ("SVM Wins")
+    best_model = svm_model
+if (best_result == random_forest_best_result):
+    print ("Random Forest Wins")
+    best_model = random_forest_model
+if (best_result == logistic_best_result):
+    print ("Logistic Wins")
+    best_model = logistic_model
+
+print("Best accuracy: {}".format(best_result))
+model_file_name =  "./models/model_" + TOP_LEVEL_CATEGORY + "_" + SECOND_LEVEL_CATEGORY + ".pickle"
+pickle.dump(best_model, open(model_file_name, "wb"))
