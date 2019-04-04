@@ -40,7 +40,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import string
 
 PATH_MODELS ="./models/"
-EMAIL = "I love you so much, my little girl!\nI hate you so much\nI don't no about nothing\nWhat's necessary to know about us?\nDo you know my names?\nInteresting person"
+EMAIL = "I love you so much, my little girl!"
 
 #load models
 searchModelFileNames = PATH_MODELS + "model_*.pickle"
@@ -77,19 +77,24 @@ def clean(doc, words_to_exclude, exclude, lemma):
 
     return normalized
 
-def clean_data(data):
+def get_clean_data(data):
     words_to_exclude = set(stopwords.words('english'))
     exclude = set(string.punctuation)
     lemma = WordNetLemmatizer()  
 
     return [clean(doc, words_to_exclude, exclude, lemma) for doc in data]
 
-normalized_data = clean_data(EMAIL.split("\n"))
-vectorizer = TfidfVectorizer(lowercase=True, stop_words="english", min_df=1) 
-tfidEmail = vectorizer.fit_transform(normalized_data)
+file = open("clean_data.txt", "r")
+clean_data = file.readlines()
+file.close()
+
+vectorizer = TfidfVectorizer(stop_words='english', min_df=8)
+normalized_data = get_clean_data([EMAIL])
+trainData = normalized_data + clean_data[1:1000]
+tfidEmail = vectorizer.fit_transform(trainData) 
 predicted_list = []
 
 for i in range(len(models)):
-    predicted = models[i].predict(tfidEmail)
+    predicted = models[i].predict(tfidEmail)[0]
     if predicted == 1:
         predicted_list.append(models_name[i])
