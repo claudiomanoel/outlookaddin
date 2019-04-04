@@ -7,3 +7,5 @@
 /OutlookAddIn/OutlookAddIn/bin/Debug
 /OutlookAddIn/OutlookAddIn/obj
 *.suo
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite-journal
