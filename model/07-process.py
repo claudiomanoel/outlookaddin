@@ -90,7 +90,7 @@ file.close()
 
 vectorizer = TfidfVectorizer(stop_words='english', min_df=8)
 normalized_data = get_clean_data([EMAIL])
-trainData = normalized_data + clean_data[1:1000]
+trainData = normalized_data + clean_data[1:1701]
 tfidEmail = vectorizer.fit_transform(trainData) 
 predicted_list = []
 
