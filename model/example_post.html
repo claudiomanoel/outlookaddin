@@ -2,6 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8"></meta>
+  <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		
  
   <script>
     var HttpClient = function() {
@@ -17,12 +22,29 @@
       };
     };
  
-    var req = new HttpClient();
-    var rURL = 'http://localhost:8080/email_classification/';
-    req.post(rURL, {"id": 1, "email": "My little email"}, function(response) {
-      document.getElementById('main').innerHTML = response;
-    });
+    function classify()
+    {
+      var req = new HttpClient();
+      var rURL = 'http://localhost:8080/email_classification/';
+      var email = $('#textAreaEmail').val().trim();
+      req.post(rURL, {"id": 1, "email": email}, function(response) {
+        document.getElementById('textAreaResult').innerHTML = response;
+      });
+    }
+    
  
 </script>
 </head>
 <body>
+    <textarea id="textAreaEmail" rows="4" cols="50">
+        At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+    </textarea> 
+    </br>
+    <button onclick="classify()">Classifiy</button>
+    
+  </br></br>
+    <label>Result:</label>
+    </br>
+    <textarea id='textAreaResult' rows="4" cols="50"></textarea>
+</body>
+</html>
