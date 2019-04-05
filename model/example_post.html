@@ -18,8 +18,8 @@
     };
  
     var req = new HttpClient();
-    var rURL = 'http://localhost:8080/d/';
-    req.post(rURL, {"a": 1, "delta": "data"}, function(response) {
+    var rURL = 'http://localhost:8080/email_classification/';
+    req.post(rURL, {"id": 1, "email": "My little email"}, function(response) {
       document.getElementById('main').innerHTML = response;
     });
  
