@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Flurl;
+using Flurl.Http;
 
 namespace OutlookAddIn
 {
@@ -26,6 +28,9 @@ namespace OutlookAddIn
         }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            //var id = Guid.NewGuid().ToString();
+            //var json = await "http://localhost:8080/email_classification".PostJsonAsync(new { id = id, email = "My Little girl" }).ReceiveJson();
+
             BindingSource v_Source = new BindingSource();
             List<Email> v_List = new List<Email> { new Email { Subject = "Test", Sender = "Camila Santos (camila@ig.com)"}, new Email { Subject = "Main", Sender = "João Saldanha (joao@ig.com)" } };
             v_Source.DataSource = v_List;
