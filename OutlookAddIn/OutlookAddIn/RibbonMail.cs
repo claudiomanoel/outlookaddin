@@ -11,12 +11,28 @@ namespace OutlookAddIn
 {
     public partial class RibbonMail
     {
+        #region Events
+
         private void RibbonMail_Load(object sender, RibbonUIEventArgs e)
         {
 
         }
 
         private void buttonShowMetrics_Click(object sender, RibbonControlEventArgs e)
+        {
+            openShowMetrics();
+        }
+
+        private void buttonSearchMails_Click(object sender, RibbonControlEventArgs e)
+        {
+            openSearchMails();
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void openShowMetrics()
         {
             // Get Application application
             Outlook.Application application = Globals.ThisAddIn.Application;
@@ -32,7 +48,7 @@ namespace OutlookAddIn
             }
         }
 
-        private void buttonSearchMails_Click(object sender, RibbonControlEventArgs e)
+        private void openSearchMails()
         {
             // Get Application application
             Outlook.Application application = Globals.ThisAddIn.Application;
@@ -40,5 +56,7 @@ namespace OutlookAddIn
        GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox));
             v_FormSearchEmails.Show();
         }
+
+        #endregion
     }
 }

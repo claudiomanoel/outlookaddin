@@ -18,14 +18,20 @@ namespace OutlookAddIn
         private MailItem m_MailItem;
         #endregion
 
+        #region Constructors
+
         public FormShowMetrics(MailItem p_MailItem)
         {
             InitializeComponent();
             m_MailItem = p_MailItem;
-            this.ShowMetrics();
+            this.showMetrics();
         }
 
-        private void ShowMetrics()
+        #endregion
+
+        #region Methods
+
+        private void showMetrics()
         {
             string[] v_labels = new string[10];
             float[] v_values = new float[v_labels.Count()];
@@ -50,5 +56,7 @@ namespace OutlookAddIn
 
             v_Serie.Points.DataBindXY(v_labels, v_values);
         }
+
+        #endregion
     }
 }
