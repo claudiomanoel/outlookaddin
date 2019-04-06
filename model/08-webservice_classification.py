@@ -105,9 +105,12 @@ class DataView(object):
         predicted_list = []
 
         for i in range(len(models)):
-            predicted = models[i].predict(tfidEmail)[0]
-            if predicted == 1:
-                predicted_list.append(models_name[i])
+            try:
+                predicted = models[i].predict(tfidEmail)[0]
+                if predicted == 1:
+                    predicted_list.append(models_name[i])
+            except:
+                print("Error")
 
         return json.dumps({'id': requestId, 'res': predicted_list})
  

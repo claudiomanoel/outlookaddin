@@ -185,6 +185,7 @@
     <Compile Include="FormShowMetrics.Designer.cs">
       <DependentUpon>FormShowMetrics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\JsonReceiveEmailClassification.cs" />
     <Compile Include="RibbonMail.cs">
       <SubType>Component</SubType>
     </Compile>
