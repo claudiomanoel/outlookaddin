@@ -20,6 +20,8 @@ namespace OutlookAddIn
         #region Members
 
         private Microsoft.Office.Interop.Outlook.MAPIFolder m_Inbox;
+        private Dictionary<string, List<string>> m_HashMail = new Dictionary<string, List<string>>();
+        private Dictionary<string, List<string>> m_HashCategory = new Dictionary<string, List<string>>();
 
         #endregion
 
@@ -59,31 +61,31 @@ namespace OutlookAddIn
 
         private async Task<List<JsonReceiveEmailClassification>> getListTaskResponse()
         {
-            Microsoft.Office.Interop.Outlook.Items items = m_Inbox.Items;
+            Microsoft.Office.Interop.Outlook.Items v_EmailItems = m_Inbox.Items;
 
             List<JsonReceiveEmailClassification> v_ListTaskResponse = new List<JsonReceiveEmailClassification>();
 
             var v_EmailClassification = "http://localhost:8080/email_classification";
             var v_HtmlUtils = new HtmlUtils();
-            foreach (var item in items)
+            foreach (var i_Item in v_EmailItems)
             {
                 try
                 {
-                    var v_Email = (MailItem)item;
+                    var v_Email = (MailItem)i_Item;
                     var v_Id = v_Email.EntryID;
                     var v_Subject = v_Email.Subject;
                     var v_Body = v_Email.Body;
-                    StringBuilder emailClassification = new StringBuilder(v_Email.Subject).Append(". ");
+                    StringBuilder v_EmailClasssification = new StringBuilder(v_Email.Subject).Append(". ");
                     if (v_Email.BodyFormat == OlBodyFormat.olFormatHTML)
                     {
-                        emailClassification.Append(v_HtmlUtils.HtmlToText(v_Body));
+                        v_EmailClasssification.Append(v_HtmlUtils.HtmlToText(v_Body));
                     }
                     else
                     {
-                        emailClassification.Append(v_Body);
+                        v_EmailClasssification.Append(v_Body);
                     }
 
-                    var v_EmailToSend = emailClassification.ToString().Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
+                    var v_EmailToSend = v_EmailClasssification.ToString().Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
                     var v_PostJsonTask = v_EmailClassification.PostJsonAsync(new { id = v_Id, email = v_EmailToSend });
                     var v_TaskJsonResponse = await v_PostJsonTask.ReceiveJson<JsonReceiveEmailClassification>();
                     v_ListTaskResponse.Add(v_TaskJsonResponse);
@@ -100,7 +102,32 @@ namespace OutlookAddIn
 
         private void processListTaskResponse(List<JsonReceiveEmailClassification> p_ListTaskResponse)
         {
-            p_ListTaskResponse.Add()
+            if (p_ListTaskResponse == null)
+            {
+                return;
+            }
+
+            foreach(var v_TaskResponse in p_ListTaskResponse)
+            {
+                var v_EmailId = v_TaskResponse.id;
+                var v_ListCategory = v_TaskResponse.res;
+
+                m_HashMail.Add(v_EmailId, v_ListCategory);
+
+                if (v_ListCategory == null)
+                {
+                    continue;
+                }
+                foreach(var v_Category in v_ListCategory)
+                {
+                    if (!m_HashCategory.ContainsKey(v_Category))
+                    {
+                        m_HashCategory.Add(v_Category, new List<string>());
+                    }
+
+                    m_HashCategory[v_Category].Add(v_EmailId);
+                }
+            }
         }
 
         private void openShowMetrics()
