@@ -11,6 +11,7 @@ using Flurl.Http;
 using Microsoft.Office.Interop.Outlook;
 using System.Threading.Tasks;
 using OutlookAddIn.Data;
+using OutlookAddIn.Utils;
 
 namespace OutlookAddIn
 {
@@ -52,34 +53,54 @@ namespace OutlookAddIn
 
         private async void loadMails()
         {
+            List<JsonReceiveEmailClassification> v_ListTaskResponse = await getListTaskResponse();
+            processListTaskResponse(v_ListTaskResponse);
+        }
+
+        private async Task<List<JsonReceiveEmailClassification>> getListTaskResponse()
+        {
             Microsoft.Office.Interop.Outlook.Items items = m_Inbox.Items;
-            List<Task> tasks = new List<Task>();
-            List<JsonReceiveEmailClassification> taskResponse = new List<JsonReceiveEmailClassification>();
 
+            List<JsonReceiveEmailClassification> v_ListTaskResponse = new List<JsonReceiveEmailClassification>();
 
-            var emailClassificationPath = "http://localhost:8080/email_classification";
+            var v_EmailClassification = "http://localhost:8080/email_classification";
+            var v_HtmlUtils = new HtmlUtils();
             foreach (var item in items)
             {
                 try
                 {
-                    var email = (MailItem)item;
-                    var id = email.EntryID;
-                    var subject = email.Subject;
-                    var body = email.Body;
-                    string emailClassification = new StringBuilder(email.Subject).ToString();
-                    var task = emailClassificationPath.PostJsonAsync(new { id = id, email = emailClassification });
-                    tasks.Add(task);
-                    var taskJsonResponse = await task.ReceiveJson<JsonReceiveEmailClassification>();
-                    taskResponse.Add(taskJsonResponse);
-                    
-                    //var json = await task.ReceiveJson<JsonReceiveEmailClassification>();
+                    var v_Email = (MailItem)item;
+                    var v_Id = v_Email.EntryID;
+                    var v_Subject = v_Email.Subject;
+                    var v_Body = v_Email.Body;
+                    StringBuilder emailClassification = new StringBuilder(v_Email.Subject).Append(". ");
+                    if (v_Email.BodyFormat == OlBodyFormat.olFormatHTML)
+                    {
+                        emailClassification.Append(v_HtmlUtils.HtmlToText(v_Body));
+                    }
+                    else
+                    {
+                        emailClassification.Append(v_Body);
+                    }
+
+                    var v_EmailToSend = emailClassification.ToString().Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
+                    var v_PostJsonTask = v_EmailClassification.PostJsonAsync(new { id = v_Id, email = v_EmailToSend });
+                    var v_TaskJsonResponse = await v_PostJsonTask.ReceiveJson<JsonReceiveEmailClassification>();
+                    v_ListTaskResponse.Add(v_TaskJsonResponse);
                 }
-                catch (System.Exception exception)
+                catch
                 {
 
                 }
 
             }
+
+            return v_ListTaskResponse;
+        }
+
+        private void processListTaskResponse(List<JsonReceiveEmailClassification> p_ListTaskResponse)
+        {
+            p_ListTaskResponse.Add()
         }
 
         private void openShowMetrics()
