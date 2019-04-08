@@ -173,6 +173,8 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Constants\CategoryConstant.cs" />
+    <Compile Include="Data\EmailData.cs" />
     <Compile Include="FormSearchEmails.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -83,11 +83,12 @@ def clean(doc, words_to_exclude, exclude, lemma):
     return normalized
 
 def get_clean_data(data):
-    words_to_exclude = set(stopwords.words('english'))
-    exclude = set(string.punctuation)
-    lemma = WordNetLemmatizer()  
-
     return [clean(doc, words_to_exclude, exclude, lemma) for doc in data]
+
+#Initialize commom variables
+words_to_exclude = set(stopwords.words('english'))
+exclude = set(string.punctuation)
+lemma = WordNetLemmatizer()
 
 class DataView(object):
     exposed = True

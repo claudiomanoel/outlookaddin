@@ -20,6 +20,7 @@ namespace OutlookAddIn
         #region Members
 
         private Microsoft.Office.Interop.Outlook.MAPIFolder m_Inbox;
+        private Dictionary<string, MailItem> m_ListIndexMailItem = new Dictionary<string, MailItem>();
         private Dictionary<string, List<string>> m_HashMail = new Dictionary<string, List<string>>();
         private Dictionary<string, List<string>> m_HashCategory = new Dictionary<string, List<string>>();
 
@@ -55,8 +56,20 @@ namespace OutlookAddIn
 
         private async void loadMails()
         {
+            makeListMailIndex();
             List<JsonReceiveEmailClassification> v_ListTaskResponse = await getListTaskResponse();
             processListTaskResponse(v_ListTaskResponse);
+        }
+
+        private void makeListMailIndex()
+        {
+            Microsoft.Office.Interop.Outlook.Items v_EmailItems = m_Inbox.Items;
+            foreach (var i_Item in v_EmailItems)
+            {
+                var v_Email = (MailItem)i_Item;
+                var v_Id = v_Email.EntryID;
+                m_ListIndexMailItem.Add(v_Id, v_Email);
+            }
         }
 
         private async Task<List<JsonReceiveEmailClassification>> getListTaskResponse()
@@ -148,7 +161,7 @@ namespace OutlookAddIn
 
         private void openSearchMails()
         {
-            FormSearchEmails v_FormSearchEmails = new FormSearchEmails(m_Inbox);
+            FormSearchEmails v_FormSearchEmails = new FormSearchEmails(m_Inbox, m_HashCategory, m_ListIndexMailItem);
             v_FormSearchEmails.Show();
         }
 

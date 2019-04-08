@@ -50,12 +50,6 @@
             // 
             this.checkedListBoxLabels.Dock = System.Windows.Forms.DockStyle.Top;
             this.checkedListBoxLabels.FormattingEnabled = true;
-            this.checkedListBoxLabels.Items.AddRange(new object[] {
-            "Purely Personal",
-            "Forwarded email(s) including replies",
-            "Government / academic report(s)",
-            "talking points",
-            "secrecy / confidentiality"});
             this.checkedListBoxLabels.Location = new System.Drawing.Point(0, 0);
             this.checkedListBoxLabels.Name = "checkedListBoxLabels";
             this.checkedListBoxLabels.Size = new System.Drawing.Size(725, 89);
@@ -87,6 +81,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSearchEmails";
             this.Text = "Search Emails";
+            this.Load += new System.EventHandler(this.FormSearchEmails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchMails)).EndInit();
             this.ResumeLayout(false);
 
